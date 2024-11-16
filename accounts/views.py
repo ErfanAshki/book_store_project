@@ -11,7 +11,3 @@ class SignUpView(generic.CreateView):
     context_object_name = 'form'
     success_url = reverse_lazy('login')
 
-
-def home_page_view(request):
-    return render(request, 'home.html')
-
