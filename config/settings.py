@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # my apps
     'accounts',
     'pages',
+    'book',
 
     # downloaded apps
     'crispy_forms',
