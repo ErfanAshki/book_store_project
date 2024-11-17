@@ -8,7 +8,7 @@
 {% block content %}
 
     <h2>{{ book.title }}</h2>
-    <p>{{ book.body }}</p>
+    <p>{{ book.body|linebreaks }}</p>
     <h4>{{ book.author }}</h4>
     <p>{{ book.publisher }}</p>
     <h3>{{ book.datetime_created }}</h3>

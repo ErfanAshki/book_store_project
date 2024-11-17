@@ -9,9 +9,9 @@
 
     {% for book in books %}
         <a href="{{ book.get_absolute_url }}"><h2>{{ book.title }}</h2></a>
+        <p>{{ book.body|truncatewords:50     }}</p>
         <h4>{{ book.author }}</h4>
         <p>{{ book.publisher }}</p>
-        <h3>{{ book.datetime_created }}</h3>
         <b>{{ book.price }}</b>
         <p>-------------------------------------</p>
     {% endfor %}
