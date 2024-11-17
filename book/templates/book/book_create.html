@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block page_title %}book create page{% endblock page_title %}
+
+
+{% block content %}
+
+    <form class="mt-3" action="" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-info mt-4" type="submit">save</button>
+    </form>
+    <br>
+    <a href="{% url 'book_list' %}">List of books</a>
+
+{% endblock content %}

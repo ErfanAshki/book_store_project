@@ -15,5 +15,7 @@
         <b>{{ book.price }}</b>
         <p>-------------------------------------</p>
     {% endfor %}
+    <br> <br>
+    <a href="{% url 'book_create' %}">create new book</a>
 
 {% endblock content %}
