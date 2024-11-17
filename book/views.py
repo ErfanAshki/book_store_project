@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 
 from .models import Book
@@ -6,9 +6,11 @@ from .forms import BookForm
 
 
 class BookListView(generic.ListView):
-    model = Book
     template_name = 'book/book_list.html'
     context_object_name = 'books'
+
+    def get_queryset(self):
+        return Book.objects.all().order_by('-datetime_modified')
 
 
 class BookDetailView(generic.DetailView):
@@ -24,4 +26,15 @@ class BookCreateView(generic.CreateView):
     context_object_name = 'form'
 
 
-    
+class BookUpdateView(generic.UpdateView):
+    model = Book
+    fields = ['title', 'body', 'author', 'price']
+    template_name = 'book/book_update.html'
+    context_object_name = 'form'
+
+
+class BookDeleteView(generic.DeleteView):
+    model = Book
+    template_name = 'book/book_delete.html'
+    context_object_name = 'book'
+    success_url = reverse_lazy('book_list')
