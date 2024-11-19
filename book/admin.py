@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Book
+from .models import Book, Comment
 
 
 class BookAdmin(admin.ModelAdmin):
@@ -9,3 +9,12 @@ class BookAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Book, BookAdmin)
+
+
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['id', 'book', 'user', 'text', 'star', 'recommend', 'datetime_created']
+    ordering = ['id']
+
+
+admin.site.register(Comment, CommentAdmin)
+

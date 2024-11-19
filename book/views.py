@@ -1,8 +1,14 @@
 from django.urls import reverse_lazy
 from django.views import generic
+from django.shortcuts import get_object_or_404, render
 
-from .models import Book
+from .models import Book, Comment
 from .forms import BookForm
+
+
+def comment_view(request):
+    comments = Book.comments.all()
+    return render(request, 'book/book_list.html', {'comments': comments})
 
 
 class BookListView(generic.ListView):
