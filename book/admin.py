@@ -12,8 +12,8 @@ admin.site.register(Book, BookAdmin)
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ['id', 'book', 'user', 'text', 'star', 'recommend', 'datetime_created']
-    ordering = ['id']
+    list_display = ['id', 'book', 'user', 'text', 'star', 'recommend', 'is_active', 'datetime_created']
+    ordering = ['-datetime_created']
 
 
 admin.site.register(Comment, CommentAdmin)
